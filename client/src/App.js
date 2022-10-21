@@ -1,11 +1,20 @@
-import { Button } from "antd";
 import "antd/dist/antd.min.css";
+import "./resources/global.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
-    <div className="App m-5">
-      <h1>Bus Ticketing App</h1>
-      <Button type="primary">Primary Button</Button>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
