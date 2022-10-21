@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-.register-form {
+.w-400 {
   width: 400px;
 }
 
@@ -44,4 +44,31 @@ input {
 
 .ant-form-item-label > label {
   font-size: 16px;
+}
+
+/* buttons */
+
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* anchor */
+
+a {
+  text-decoration: none !important;
+  color: var(--primary) !important;
 }
