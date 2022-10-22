@@ -1,10 +1,20 @@
 import React from "react";
-import { Form } from "antd";
+import { Form, message } from "antd";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = async (values) => {
+    try {
+      const response = await axios.post("/api/users/register", values);
+      if (response.data.success) {
+        message.success(response.data.message);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
   };
 
   return (
