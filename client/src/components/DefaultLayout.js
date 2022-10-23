@@ -99,12 +99,12 @@ function DefaultLayout({ children }) {
         <div className="header">
           {collapsed ? (
             <i
-              class="ri-menu-2-line"
+              className="ri-menu-2-line"
               onClick={() => setCollapsed(!collapsed)}
             ></i>
           ) : (
             <i
-              class="ri-close-line"
+              className="ri-close-line"
               onClick={() => setCollapsed(!collapsed)}
             ></i>
           )}
