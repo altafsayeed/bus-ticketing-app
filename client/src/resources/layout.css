@@ -19,7 +19,7 @@
 
 .sidebar {
   background-color: var(--secondary);
-  border-radius: 7px;
+  border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   padding: 0 10px 0 10px;
