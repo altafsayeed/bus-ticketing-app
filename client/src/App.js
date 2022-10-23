@@ -11,6 +11,7 @@ import Loader from "./components/Loader";
 import AdminHome from "./pages/Admin/AdminHome";
 import AdminBuses from "./pages/Admin/AdminBuses";
 import AdminUsers from "./pages/Admin/AdminUsers";
+import BookNow from "./pages/BookNow";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -24,6 +25,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/book-now/:id"
+            element={
+              <ProtectedRoute>
+                <BookNow />
               </ProtectedRoute>
             }
           />

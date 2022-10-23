@@ -22,6 +22,7 @@ input {
 .card {
   border: 2px solid gray;
   box-shadow: 0 0 2px gray;
+  border-radius: 0 !important;
 }
 
 /* text sizes */
@@ -40,6 +41,16 @@ input {
 
 .text-md {
   font-size: 18px;
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.booking-bus-name {
+  font-size: 25px;
+  color: var(--primary);
+  font-weight: bolder;
 }
 
 .ant-form-item-label > label {
@@ -78,7 +89,9 @@ i {
   font-size: 25px;
 }
 
-h1 {
+h1,
+h2,
+p {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
