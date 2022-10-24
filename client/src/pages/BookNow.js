@@ -2,6 +2,7 @@ import { Col, message, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
 import SeatSelection from "../components/SeatSelection";
 import { axiosInstance } from "../helpers/axiosInstance";
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
@@ -29,12 +30,13 @@ function BookNow() {
     }
   };
 
-  const bookNow = async () => {
+  const bookNow = async (transactionId) => {
     try {
       dispatch(ShowLoading());
       const response = await axiosInstance.post("/api/bookings/book-seat", {
         bus: bus._id,
         seats: selectedSeats,
+        transactionId,
       });
       dispatch(HideLoading());
       if (response.data.success) {
@@ -42,7 +44,30 @@ function BookNow() {
       } else {
         message.error(response.data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      dispatch(HideLoading());
+      message.error(error.message);
+    }
+  };
+
+  const onToken = async (token) => {
+    try {
+      dispatch(ShowLoading());
+      const response = await axiosInstance.post("/api/bookings/make-payment", {
+        token,
+        amount: selectedSeats.length * bus.fare * 100,
+      });
+      dispatch(HideLoading());
+      if (response.data.success) {
+        message.success(response.data.message);
+        bookNow(response.data.data.transactionId);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(HideLoading());
+      message.error(error.message);
+    }
   };
 
   useEffect(() => {
@@ -87,15 +112,22 @@ function BookNow() {
                 <b>Total Price :</b> ${bus.fare * selectedSeats.length}
               </h1>
               <hr />
-              <button
-                className={`primary-btn ${
-                  selectedSeats.length === 0 && "disabled-btn"
-                }`}
-                onClick={bookNow}
-                disabled={selectedSeats.length === 0}
+
+              <StripeCheckout
+                billingAddress
+                token={onToken}
+                amount={bus.fare * selectedSeats.length * 100}
+                stripeKey="pk_test_51LwFznGRwPBkpCZbrmooxB4J1BXXKs61WSyzg4wXqSQ1p2ueAJY0tJpCMwfilBynGEbwnskah3MHCOURoQ0ev5di004W9R519r"
               >
-                Book Now
-              </button>
+                <button
+                  className={`primary-btn ${
+                    selectedSeats.length === 0 && "disabled-btn"
+                  }`}
+                  disabled={selectedSeats.length === 0}
+                >
+                  Book Now
+                </button>
+              </StripeCheckout>
             </div>
           </Col>
           <Col lg={12} xs={24} sm={24}>
