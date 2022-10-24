@@ -57,14 +57,18 @@ function DefaultLayout({ children }) {
     },
   ];
   const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
-  const activeRoute = window.location.pathname;
+  let activeRoute = window.location.pathname;
+  if (window.location.pathname.includes("book-now")) {
+    activeRoute = "/";
+  }
+
   return (
     <div className="layout-parent">
       <div className="sidebar">
         <div className="sidebar-header">
-          <h1 className="logo">{collapsed ? "BB" : "Bus Booker"}</h1>
+          <h2 className="logo">{collapsed ? "UB 🚌" : "UBus 🚌"}</h2>
           <h1 className="role">
-            {user?.name} <br /> Role : {user?.isAdmin ? "Admin" : "User"}
+            {user?.name} <br /> {user?.isAdmin ? "Admin" : "User"}
           </h1>
         </div>
         <div className="d-flex flex-column gap-3 justify-content-start menu">

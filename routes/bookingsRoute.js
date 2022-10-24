@@ -18,7 +18,7 @@ router.post("/book-seat", authMiddleware, async (req, res) => {
     bus.seatsBooked = [...bus.seatsBooked, ...req.body.seats];
     await bus.save();
     res.status(200).send({
-      message: "Booking successful!",
+      message: "Your seats have been booked 🚌",
       data: newBooking,
       success: true,
     });
@@ -54,7 +54,7 @@ router.post("/make-payment", authMiddleware, async (req, res) => {
     );
     if (payment) {
       res.status(200).send({
-        message: "Payment successful!",
+        message: "Payment successful 💸",
         data: {
           transactionId: payment.source.id,
         },
@@ -70,6 +70,27 @@ router.post("/make-payment", authMiddleware, async (req, res) => {
   } catch (error) {
     res.status(500).send({
       message: "Payment failed",
+      data: error,
+      success: false,
+    });
+  }
+});
+
+// get bookings by user id
+
+router.post("/get-bookings-by-user-id", authMiddleware, async (req, res) => {
+  try {
+    const bookings = await Booking.find({ user: req.body.userId })
+      .populate("bus")
+      .populate("user");
+    res.status(200).send({
+      message: "Bookings fetched successfully",
+      data: bookings,
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: "Bookings fetch failed",
       data: error,
       success: false,
     });

@@ -98,6 +98,7 @@ function AdminBuses() {
   useEffect(() => {
     getBuses();
   }, []);
+
   return (
     <div>
       <div className="d-flex justify-content-between">
