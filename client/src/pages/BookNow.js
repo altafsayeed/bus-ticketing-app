@@ -28,6 +28,23 @@ function BookNow() {
       message.error(error.message);
     }
   };
+
+  const bookNow = async () => {
+    try {
+      dispatch(ShowLoading());
+      const response = await axiosInstance.post("/api/bookings/book-seat", {
+        bus: bus._id,
+        seats: selectedSeats,
+      });
+      dispatch(HideLoading());
+      if (response.data.success) {
+        message.success(response.data.message);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
     getBus();
   }, []);
@@ -43,27 +60,42 @@ function BookNow() {
             <hr />
             <div className="flex flex-col gap-1">
               <h5 className="booking-details">
-                <b>Journey Date</b> : {bus.journeyDate}
+                <b>Journey Date :</b> {bus.journeyDate}
               </h5>
               <h5 className="booking-details">
-                <b>Fare</b> : ${bus.fare}
+                <b>Fare :</b> ${bus.fare}
               </h5>
               <h5 className="booking-details">
-                <b>Departure Time</b> : {bus.departure}
+                <b>Departure Time :</b> {bus.departure}
               </h5>
               <h5 className="booking-details">
-                <b>Arrival Time</b> : {bus.arrival}
+                <b>Arrival Time :</b> {bus.arrival}
+              </h5>
+              <h5 className="booking-details">
+                <b>Bus Capacity :</b> {bus.capacity}
+              </h5>
+              <h5 className="booking-details">
+                <b>Available Seats :</b> {bus.capacity - bus.seatsBooked.length}
               </h5>
             </div>
             <hr />
             <div className="flex flex-col gap-1">
               <h1 className="text-2xl">
-                <b>Selected Seats</b> : {selectedSeats.join(", ")}
+                <b>Selected Seats :</b> {selectedSeats.join(", ")}
               </h1>
               <h1 className="text-2xl mt-2">
-                <b>Total Price</b> : ${bus.fare * selectedSeats.length}
+                <b>Total Price :</b> ${bus.fare * selectedSeats.length}
               </h1>
-              <button className="primary-btn mt-3">Book Now</button>
+              <hr />
+              <button
+                className={`primary-btn ${
+                  selectedSeats.length === 0 && "disabled-btn"
+                }`}
+                onClick={bookNow}
+                disabled={selectedSeats.length === 0}
+              >
+                Book Now
+              </button>
             </div>
           </Col>
           <Col lg={12} xs={24} sm={24}>
