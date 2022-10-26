@@ -96,4 +96,42 @@ router.post("/get-user-by-id", authMiddleware, async (req, res) => {
   }
 });
 
+// get all users
+
+router.post("/get-all-users", authMiddleware, async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.send({
+      message: "Users fetched successfully",
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    res.send({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+});
+
+// update user
+
+router.post("/update-user", authMiddleware, async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.send({
+      message: "Users fetched successfully",
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    res.send({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+});
+
 module.exports = router;
