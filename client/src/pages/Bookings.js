@@ -60,6 +60,9 @@ function Bookings() {
     {
       title: "Seats",
       dataIndex: "seats",
+      render: (seats) => {
+        return seats.join(", ");
+      },
     },
     {
       title: "Action",
@@ -123,7 +126,7 @@ function Bookings() {
             <hr />
             <p>
               <span className="text-lg">Seat Numbers:</span> <br />
-              {selectedBooking.seats}
+              {selectedBooking.seats.join(", ")}
             </p>
             <hr />
             <p>

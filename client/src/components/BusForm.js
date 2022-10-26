@@ -56,52 +56,65 @@ function BusForm({
         <Row gutter={[10, 10]}>
           <Col lg={24} xs={24}>
             <Form.Item label="Bus Name" name="busName">
-              <input type="text" />
+              <input type="text" required="true" />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="Bus Number" name="busNumber">
-              <input type="text" />
+              <input type="text" required="true" />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="Capacity" name="capacity">
-              <input type="text" />
+              <input type="text" required="true" />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="From" name="from">
-              <input type="text" />
+              <input type="text" required="true" />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="To" name="to">
-              <input type="text" />
+              <input type="text" required="true" />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
             <Form.Item label="Journey Date" name="journeyDate">
-              <input type="date" />
+              <input type="date" required="true" />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
             <Form.Item label="Departure time" name="departure">
-              <input type="time" />
+              <input type="time" required="true" />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
             <Form.Item label="Arrival time" name="arrival">
-              <input type="time" />
+              <input type="time" required="true" />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="Type" name="type">
-              <input type="text" />
+              <select name="" id="" required="true">
+                <option value="Economy">Economy</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Luxury">Luxury</option>
+              </select>
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
             <Form.Item label="Fare" name="fare">
-              <input type="text" />
+              <input type="text" required="true" />
+            </Form.Item>
+          </Col>
+          <Col lg={12} xs={24}>
+            <Form.Item label="Status" name="status">
+              <select name="id=" required="true">
+                <option value="Not started yet">Not started yet</option>
+                <option value="Running">Running</option>
+                <option value="Completed">Completed</option>
+              </select>
             </Form.Item>
           </Col>
         </Row>

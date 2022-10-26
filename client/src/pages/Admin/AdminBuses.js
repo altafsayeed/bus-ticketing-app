@@ -9,7 +9,7 @@ import { axiosInstance } from "../../helpers/axiosInstance";
 
 function AdminBuses() {
   const dispatch = useDispatch();
-  const [showBusForm, setShowBusForm] = React.useState(false);
+  const [showBusForm, setShowBusForm] = useState(false);
   const [buses, setBuses] = useState([]);
   const [selectedBus, setSelectedBus] = useState(null);
   const getBuses = async () => {
@@ -78,14 +78,14 @@ function AdminBuses() {
       render: (action, record) => (
         <div className="d-flex gap-3">
           <i
-            class="ri-edit-2-line"
+            className="ri-edit-2-line"
             onClick={() => {
               setSelectedBus(record);
               setShowBusForm(true);
             }}
           ></i>
           <i
-            class="ri-delete-bin-line"
+            className="ri-delete-bin-line"
             onClick={() => {
               deleteBus(record._id);
             }}

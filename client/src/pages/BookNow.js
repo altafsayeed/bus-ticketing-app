@@ -1,7 +1,8 @@
 import { Col, message, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import moment from "moment";
 import StripeCheckout from "react-stripe-checkout";
 import SeatSelection from "../components/SeatSelection";
 import { axiosInstance } from "../helpers/axiosInstance";
@@ -10,6 +11,7 @@ import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 function BookNow() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const params = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [bus, setBus] = useState(null);
   const getBus = async () => {
@@ -41,6 +43,7 @@ function BookNow() {
       dispatch(HideLoading());
       if (response.data.success) {
         message.success(response.data.message);
+        navigate("/bookings");
       } else {
         message.error(response.data.message);
       }
@@ -86,7 +89,8 @@ function BookNow() {
             <hr />
             <div className="flex flex-col gap-1">
               <h5 className="booking-details">
-                <b>Journey Date :</b> {bus.journeyDate}
+                <b>Journey Date :</b>
+                {moment(bus.journeyDate).format("MM-DD-YYYY")}
               </h5>
               <h5 className="booking-details">
                 <b>Fare :</b> ${bus.fare}

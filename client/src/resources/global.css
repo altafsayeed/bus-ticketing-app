@@ -10,19 +10,25 @@
 
 /* inputs */
 
-input {
+input,
+select {
   height: 40px;
   border: 2px solid gray;
   width: 100%;
   padding-left: 20px;
 }
 
+.ant-form-item {
+  margin: 3px !important;
+}
+
 /* card */
 
 .card {
-  border: 2px solid gray;
-  box-shadow: 0 0 2px gray;
+  border: 2px solid rgb(192, 192, 192);
+  box-shadow: 0 0 2px rgb(171, 171, 171);
   border-radius: 0 !important;
+  border-width: 1px;
 }
 
 /* text sizes */
