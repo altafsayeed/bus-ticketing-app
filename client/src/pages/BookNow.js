@@ -82,6 +82,10 @@ function BookNow() {
       {bus && (
         <Row className="mt-3" gutter={[30, 30]}>
           <Col lg={12} xs={24} sm={24}>
+            <a className="back-button" href="/">
+              Back
+            </a>
+            <hr />
             <h1 className="booking-bus-name">{bus.busName}</h1>
             <h1 className="text-md">
               {bus.from} - {bus.to}

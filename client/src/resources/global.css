@@ -84,7 +84,15 @@ select {
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
+  border-style: solid;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: white;
+  color: var(--primary);
+  border-style: solid;
 }
 
 .secondary-btn {
@@ -97,10 +105,17 @@ select {
 }
 
 .outlined {
-  border: 2px solid var(--primary) !important;
-  color: var(--primary) !important;
-  background-color: white !important;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  background-color: white;
   border-radius: 4px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.outlined:hover {
+  background-color: var(--primary);
+  color: white;
 }
 
 .disabled-btn {
@@ -115,8 +130,8 @@ select {
 /* anchor */
 
 a {
-  text-decoration: none !important;
-  color: var(--primary) !important;
+  text-decoration: none;
+  color: var(--primary);
 }
 
 i {
@@ -160,4 +175,14 @@ table {
 
 .filter-button {
   margin-left: 8px;
+}
+
+.back-button {
+  font-size: 17px;
+  transition: color 0.3s;
+}
+
+.back-button:hover {
+  color: #05835992;
+  text-decoration: underline;
 }
