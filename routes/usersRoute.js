@@ -46,6 +46,15 @@ router.post("/login", async (req, res) => {
         data: null,
       });
     }
+
+    if (userExists.isBlocked) {
+      return res.send({
+        message: "Account is blocked. Please contact admin.",
+        success: false,
+        data: null,
+      });
+    }
+
     const passwordMatch = await bcrypt.compare(
       req.body.password,
       userExists.password
@@ -117,13 +126,13 @@ router.post("/get-all-users", authMiddleware, async (req, res) => {
 
 // update user
 
-router.post("/update-user", authMiddleware, async (req, res) => {
+router.post("/update-user-permissions", authMiddleware, async (req, res) => {
   try {
-    const users = await User.find({});
+    await User.findByIdAndUpdate(req.body._id, req.body);
     res.send({
-      message: "Users fetched successfully",
+      message: "User permissions updated successfully",
       success: true,
-      data: users,
+      data: null,
     });
   } catch (error) {
     res.send({

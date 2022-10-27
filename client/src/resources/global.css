@@ -31,6 +31,11 @@ select {
   border-width: 1px;
 }
 
+.bus-card-hr {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
 /* text sizes */
 
 .text-2xl {
@@ -47,6 +52,14 @@ select {
 
 .text-md {
   font-size: 18px;
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.secondary-text {
+  color: var(--secondary);
 }
 
 .underline {
@@ -81,6 +94,13 @@ select {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.outlined {
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  background-color: white !important;
+  border-radius: 4px;
 }
 
 .disabled-btn {
@@ -130,4 +150,14 @@ p {
   width: 100px;
   height: 100px;
   color: #ffffff;
+}
+
+table {
+  border: 1.5px solid rgb(5, 131, 89);
+  box-shadow: 0 0 1px rgb(120, 120, 120);
+  border-radius: 4px;
+}
+
+.filter-button {
+  margin-left: 8px;
 }

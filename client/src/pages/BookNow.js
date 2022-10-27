@@ -89,7 +89,7 @@ function BookNow() {
             <hr />
             <div className="flex flex-col gap-1">
               <h5 className="booking-details">
-                <b>Journey Date :</b>
+                <b>Journey Date : </b>
                 {moment(bus.journeyDate).format("MM-DD-YYYY")}
               </h5>
               <h5 className="booking-details">

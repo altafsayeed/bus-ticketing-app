@@ -29,14 +29,38 @@ function AdminUsers() {
 
   const updateUserPermissions = async (user, action) => {
     try {
+      let payload = null;
+      if (action === "make-admin") {
+        payload = {
+          ...user,
+          isAdmin: true,
+        };
+      } else if (action === "remove-admin") {
+        payload = {
+          ...user,
+          isAdmin: false,
+        };
+      } else if (action === "block") {
+        payload = {
+          ...user,
+          isBlocked: true,
+        };
+      } else if (action === "unblock") {
+        payload = {
+          ...user,
+          isBlocked: false,
+        };
+      }
+
       dispatch(ShowLoading());
       const response = await axiosInstance.post(
         "/api/users/update-user-permissions",
-        user
+        payload
       );
       dispatch(HideLoading());
       if (response.data.success) {
         getUsers();
+        message.success(response.data.message);
       } else {
         message.error(response.data.message);
       }
@@ -54,6 +78,13 @@ function AdminUsers() {
     {
       title: "Email",
       dataIndex: "email",
+    },
+    {
+      title: "Status",
+      dataIndex: "",
+      render: (data) => {
+        return data.isBlocked ? "Blocked" : "Active";
+      },
     },
     {
       title: "Role",
@@ -114,7 +145,7 @@ function AdminUsers() {
 
   return (
     <div>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between my-4">
         <PageTitle title="Users" />
       </div>
 

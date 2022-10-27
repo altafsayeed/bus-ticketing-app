@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { axiosInstance } from "../helpers/axiosInstance";
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import Bus from "../components/Bus";
+import axios from "axios";
 
 function Home() {
   const { user } = useSelector((state) => state.users);
@@ -20,9 +21,14 @@ function Home() {
   const getBuses = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post(
+      const response = await axios.post(
         "/api/buses/get-all-buses",
-        tempFilters
+        tempFilters,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       dispatch(HideLoading());
       if (response.data.success) {
@@ -35,12 +41,14 @@ function Home() {
       message.error(error.message);
     }
   };
+
   useEffect(() => {
     getBuses();
   }, []);
+
   return (
     <div>
-      <div className="my-3 card px-2 py-3">
+      <div className="my-3 py-3">
         <Row gutter={10} align="center">
           <Col lg={6} sm={24}>
             <input
@@ -69,12 +77,15 @@ function Home() {
             />
           </Col>
           <Col lg={6} sm={24}>
-            <div className="d-flex gap-2">
-              <button className="primary-btn" onClick={() => getBuses()}>
+            <div className="d-flex gap-3">
+              <button
+                className="primary-btn filter-button"
+                onClick={() => getBuses()}
+              >
                 Filter
               </button>
               <button
-                className="secondary-btn"
+                className="outlined px-3"
                 onClick={() =>
                   setFilters({
                     from: "",
