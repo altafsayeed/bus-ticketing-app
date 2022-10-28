@@ -27,7 +27,7 @@ select {
 .card {
   border: 2px solid rgb(192, 192, 192);
   box-shadow: 0 0 2px rgb(171, 171, 171);
-  border-radius: 0 !important;
+  border-radius: 5px;
   border-width: 1px;
 }
 
@@ -87,6 +87,7 @@ select {
   border-style: solid;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  border-width: 2px;
 }
 
 .primary-btn:hover {
@@ -100,12 +101,20 @@ select {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-width: 2px;
+}
+
+.secondary-btn:hover {
+  background-color: white;
+  color: var(--secondary);
+  border-style: solid;
 }
 
 .outlined {
-  border: 1.5px solid var(--primary);
+  border: 2px solid var(--primary);
   color: var(--primary);
   background-color: white;
   border-radius: 4px;
@@ -121,7 +130,6 @@ select {
 .disabled-btn {
   background-color: gray;
   color: white;
-  border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: not-allowed;
@@ -142,8 +150,8 @@ i {
 h1,
 h2,
 p {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* spinner */
@@ -185,4 +193,40 @@ table {
 .back-button:hover {
   color: #05835992;
   text-decoration: underline;
+}
+
+.ubus-logo-login {
+  width: 170px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-now {
+  margin-top: 50px;
+}
+
+.journeys-text {
+  color: var(--primary);
+  font-size: 27px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.filter-div {
+  margin-bottom: 15px;
+}
+
+.bookings-text {
+  color: var(--primary);
+  font-size: 27px;
+}
+
+.journeys-content {
+  margin-right: 10px;
+}
+
+.ri-edit-2-line,
+.ri-delete-bin-line {
+  color: black;
 }

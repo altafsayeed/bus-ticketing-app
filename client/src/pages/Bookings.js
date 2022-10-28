@@ -94,7 +94,7 @@ function Bookings() {
 
   return (
     <div>
-      <PageTitle title="Bookings" />
+      <p className="bookings-text">Bookings</p>
       <div className="mt-2">
         <Table dataSource={bookings} columns={columns} />
       </div>

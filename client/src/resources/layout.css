@@ -28,18 +28,21 @@
 
 .logo {
   color: white;
+  margin-bottom: 10px;
 }
 
 .role {
   color: white;
   font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .menu {
-  margin-top: 140px;
+  margin-top: 68px;
 }
 
 .menu-item {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -48,6 +51,17 @@
   cursor: pointer;
   transition: 0.2s;
   gap: 15px;
+  margin-right: 10px;
+}
+
+.menu-item:hover {
+  background-color: rgb(255, 255, 255);
+  color: var(--secondary);
+  border-radius: 4px;
+}
+
+.menu-item:hover i {
+  color: var(--secondary);
 }
 
 .active-menu-item {
@@ -55,20 +69,29 @@
   border-radius: 5px;
 }
 
-.menu-item i {
+i {
   font-size: 27px;
   margin-right: 10px;
   color: white;
+  transition: 0.2s;
 }
 
 .menu-item span {
   font-size: 18px;
-  color: white;
+  font-weight: bold;
 }
 
 .content {
   padding: 10px 0px;
   overflow-y: scroll !important;
   overflow-x: hidden !important;
-  height: 85vh;
+  height: 95vh;
+}
+
+.ubus-logo {
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
 }

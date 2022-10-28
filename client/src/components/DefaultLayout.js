@@ -66,42 +66,7 @@ function DefaultLayout({ children }) {
     <div className="layout-parent">
       <div className="sidebar">
         <div className="sidebar-header">
-          <h2 className="logo">{collapsed ? "UB 🚌" : "UBus 🚌"}</h2>
-          <h1 className="role">
-            {user?.name} <br /> {user?.isAdmin ? "Admin" : "User"}
-          </h1>
-        </div>
-        <div className="d-flex flex-column gap-3 justify-content-start menu">
-          {menuToBeRendered.map((item, index) => {
-            return (
-              <div
-                className={`${
-                  activeRoute === item.path && "active-menu-item"
-                } menu-item`}
-              >
-                <i className={item.icon}></i>
-                {!collapsed && (
-                  <span
-                    onClick={() => {
-                      if (item.path === "/logout") {
-                        localStorage.removeItem("token");
-                        navigate("/login");
-                      } else {
-                        navigate(item.path);
-                      }
-                    }}
-                  >
-                    {item.name}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="body">
-        <div className="header">
-          {collapsed ? (
+          {/* {collapsed ? (
             <i
               className="ri-menu-2-line"
               onClick={() => setCollapsed(!collapsed)}
@@ -111,8 +76,38 @@ function DefaultLayout({ children }) {
               className="ri-close-line"
               onClick={() => setCollapsed(!collapsed)}
             ></i>
-          )}
+          )} */}
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <img className="ubus-logo" src="bus2.png" alt="UBus" />
+            <h2 className="logo">UBus</h2>
+            <h1 className="role">Logged in as {user?.name}</h1>
+            <h1 className="role">{user?.isAdmin && "Admin"}</h1>
+          </div>
         </div>
+        <div className="d-flex flex-column gap-3 justify-content-start menu">
+          {menuToBeRendered.map((item, index) => {
+            return (
+              <div
+                className={`${
+                  activeRoute === item.path && "active-menu-item"
+                } menu-item`}
+                onClick={() => {
+                  if (item.path === "/logout") {
+                    localStorage.removeItem("token");
+                    navigate("/login");
+                  } else {
+                    navigate(item.path);
+                  }
+                }}
+              >
+                <i className={item.icon}></i>
+                <span>{item.name}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="body">
         <div className="content">{children}</div>
       </div>
     </div>

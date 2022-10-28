@@ -47,8 +47,10 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <div className="my-3 py-3">
+    <div className="journeys-content">
+      <p className="journeys-text">Journeys</p>
+      <p>Filter by:</p>
+      <div className="filter-div">
         <Row gutter={10} align="center">
           <Col lg={6} sm={24}>
             <input
@@ -85,7 +87,7 @@ function Home() {
                 Filter
               </button>
               <button
-                className="outlined px-3"
+                className="outlined "
                 onClick={() =>
                   setFilters({
                     from: "",

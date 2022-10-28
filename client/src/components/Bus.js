@@ -30,14 +30,14 @@ function Bus({ bus }) {
             {moment(bus.journeyDate).format("MM-DD-YYYY")}
           </p>
         </div>
-        <h1
-          className="text-lg underline secondary-text"
+        <button
+          className="secondary-btn"
           onClick={() => {
             navigate(`/book-now/${bus._id}`);
           }}
         >
           Book Now
-        </h1>
+        </button>
       </div>
     </div>
   );

@@ -27,7 +27,9 @@ function Register() {
   };
 
   return (
-    <div className="h-screen d-flex justify-content-center align-items-center auth">
+    <div className="h-screen d-flex flex-column justify-content-center align-items-center auth">
+      <img className="ubus-logo-login" src="bus2.png" alt="UBus" />
+
       <div className="w-400 card p-3">
         <h1 className="text-2xl primary-text">Register</h1>
         <hr />
