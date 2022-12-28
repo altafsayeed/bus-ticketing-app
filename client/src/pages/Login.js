@@ -46,6 +46,18 @@ function Login() {
             <button className="primary-btn" type="submit">
               Login
             </button>
+            <button
+              type="button"
+              className="secondary-btn"
+              onClick={() => {
+                onFinish({
+                  email: "testuser@email.com",
+                  password: "lightsquirrel978",
+                });
+              }}
+            >
+              Demo App
+            </button>
           </div>
         </Form>
       </div>
