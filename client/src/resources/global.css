@@ -230,3 +230,7 @@ table {
 .ri-delete-bin-line {
   color: black;
 }
+
+.card-details {
+  color: rgb(245, 182, 9);
+}

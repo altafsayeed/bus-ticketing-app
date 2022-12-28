@@ -121,6 +121,11 @@ function BookNow() {
                 <b>Total Price :</b> ${bus.fare * selectedSeats.length}
               </h1>
               <hr />
+              <div className="card-details">
+                <p>Test Card Number : 4242 4242 4242 4242</p>
+                <p>Test Card Expiration: Any future date</p>
+                <p>Test Card CVC : Any 3 digits</p>
+              </div>
 
               <StripeCheckout
                 billingAddress
