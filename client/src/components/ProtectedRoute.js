@@ -28,13 +28,13 @@ function ProtectedRoute({ children }) {
         dispatch(SetUser(response.data.data));
       } else {
         localStorage.removeItem("token");
-        message.error(response.data.message);
+        // message.error(response.data.message);
         navigate("/login");
       }
     } catch (error) {
       dispatch(HideLoading());
       localStorage.removeItem("token");
-      message.error(error.message);
+      // message.error(error.message);
       navigate("/login");
     }
   };
