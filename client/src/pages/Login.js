@@ -19,7 +19,6 @@ function Login() {
         message.success(response.data.message);
         localStorage.setItem("token", response.data.data);
         navigate("/");
-        window.location.reload();
       } else {
         message.error(response.data.message);
       }

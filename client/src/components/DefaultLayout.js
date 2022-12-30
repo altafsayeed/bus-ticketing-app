@@ -92,7 +92,7 @@ function DefaultLayout({ children }) {
                     navigate("/login");
                   } else {
                     navigate(item.path);
-                    // window.location.reload();
+                    window.location.reload();
                   }
                 }}
               >
