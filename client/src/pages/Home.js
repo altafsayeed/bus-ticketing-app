@@ -49,7 +49,7 @@ function Home() {
   return (
     <div className="journeys-content">
       <p className="journeys-text">Journeys</p>
-      <p>Filter by:</p>
+      <p>Filter by (Case Sensitive):</p>
       <div className="filter-div">
         <Row gutter={10} align="center">
           <Col lg={6} sm={24}>

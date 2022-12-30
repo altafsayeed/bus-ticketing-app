@@ -126,6 +126,7 @@ function BookNow() {
                 <p>Test Card Expiration: Any future date</p>
                 <p>Test Card CVC : Any 3 digits</p>
               </div>
+              <hr />
 
               <StripeCheckout
                 billingAddress

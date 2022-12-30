@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import "../resources/auth.css";
+import "animate.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -29,7 +30,11 @@ function Login() {
 
   return (
     <div className="h-screen d-flex flex-column justify-content-center align-items-center auth">
-      <img className="ubus-logo-login" src="bus2.png" alt="UBus" />
+      <img
+        className={"ubus-logo-login animate__animated animate__bounceInLeft"}
+        src="bus2.png"
+        alt="UBus"
+      />
 
       <div className="w-400 card p-3">
         <h1 className="text-2xl primary-text">Login</h1>

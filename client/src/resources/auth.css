@@ -1,3 +1,5 @@
 .auth {
-  background-color: var(--secondary);
+  background-image: url("../icons/bg1.jpg");
+  /* background-color: var(--secondary); */
+  background-size: cover;
 }

@@ -201,9 +201,23 @@ table {
   align-items: center;
   justify-content: center;
 }
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
 
 .book-now {
   margin-top: 50px;
+  background-color: white;
+  padding: 15px 0 15px 15px;
+  border-radius: 5px;
 }
 
 .journeys-text {
