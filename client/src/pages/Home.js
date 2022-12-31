@@ -88,13 +88,15 @@ function Home() {
               </button>
               <button
                 className="outlined "
-                onClick={() =>
+                onClick={() => {
                   setFilters({
                     from: "",
                     to: "",
                     journeyDate: "",
-                  })
-                }
+                  });
+                  getBuses();
+                  window.location.reload();
+                }}
               >
                 Clear
               </button>
