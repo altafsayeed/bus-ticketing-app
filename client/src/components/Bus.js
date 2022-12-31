@@ -34,6 +34,7 @@ function Bus({ bus }) {
           className="secondary-btn"
           onClick={() => {
             navigate(`/book-now/${bus._id}`);
+            window.location.reload();
           }}
         >
           Book Now
